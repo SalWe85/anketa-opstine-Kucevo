@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anketa ekucevo</title>
+</head>
+<body>
+    <div id="main_div">
+        <div id="header_div">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Veliki_grb_Ku%C4%8Deva.png" alt="">
+            <div id="title_div">
+                <h1 align="center">УКЉУЧИ СЕ!!!</h1>
+                <h2 align="center">ПРЕДЛОЖИ И ПОДРЖИ ПРОЈЕКАТ!!!</h2>
+                <h2 align="center">за буџет Општине Кучево за 2022. годину</h2>
+            </div>
+        </div>
+        <div id="body_div">
+            <!-- https://formspree.io/f/mwkazdbq -->
+            <form id="my-form" action="" method="POST" >
+                <p>Шта би од наведеног, по вашем мишљењу, требало да буде приоритет расподеле буџетских средстава за 2022. годину?</p>
+                <p><u>Изаберите највише 3 одговора</u></p>                
+                    <div id="checkbox_div">
+                        <input type="checkbox" class="chc" id="chc1">
+                        <label id="chc1L" for="chc1">Унапређење јавне инфраструктуре</label><br>
+                        <input type="checkbox" class="chc" id="chc2">
+                        <label id="chc2L" for="chc2">Помоћ социјално угроженом становништву</label><br>
+                        <input type="checkbox" class="chc" id="chc3">
+                        <label id="chc3L" for="chc3">Подршка развоју пољопривреде</label><br>
+                        <input type="checkbox" class="chc" id="chc4">
+                        <label id="chc4L" for="chc4">Развој туризма</label><br>
+                        <input type="checkbox" class="chc" id="chc5">
+                        <label id="chc5L" for="chc5">Остало (наведите)</label><br>
+                        <textarea rows="5" cols="40" name="prioritet_ostalo"></textarea>
+                        <textarea rows="5" cols="40" name="prioritet_raspodele" class="txt_polje" id="txt_pr" readonly></textarea>
+                    
+                    <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
+
+                <p>Који бисте од наведених пројеката Ви уврстили у буџет општине за 2022. годину</p>
+                <p><u>Изаберите највише 3 одговора</u></p>
+                
+                    <input type="checkbox" class="chc" id="chc6">
+                    <label id="chc6L" for="chc6">Уређење канализационе мреже</label><br>
+                    <input type="checkbox" class="chc" id="chc7">
+                    <label id="chc7L" for="chc7">Изградња игралишта/парка за децу у</label>
+                    <input id="mesto" type="text" placeholder="насеље">
+                    <label for="txt2">(уписати жељено место)</label>                    
+                    <br>
+                    <input type="checkbox" class="chc" id="chc8">
+                    <label id="chc8L" for="chc8">Уређење бициклистичких и шетачких стаза</label><br>
+                    <input type="checkbox" class="chc" id="chc9">
+                    <label id="chc9L" for="chc9">Уређење обале реке Пек</label><br>
+                    <input type="checkbox" class="chc" id="chc10">
+                    <label id="chc10L" for="chc10">Нешто друго (уписати)</label><br>
+                    <textarea rows="5" cols="40" name="uvrsti_projekat_ostalo"></textarea>
+                    <textarea rows="5" cols="40" name="uvrsti_projekat" class="txt_polje" id="txt_uvp" readonly></textarea>
+                    <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
+
+                <p>Ваш пол:</p>                    
+                    <input type="checkbox" class="chc" id="chc11">
+                    <label id="chc11L" for="chc11">Женски</label><br>
+                    <input type="checkbox" class="chc" id="chc12">
+                    <label id="chc12L" for="chc12">Мушки</label><br>
+                    <textarea rows="1" cols="20" name="pol" class="txt_polje" id="txt_pol" readonly></textarea>
+                    <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
+
+                <p>Старосна група којој припадате:</p>                    
+                    <input type="checkbox" class="chc" id="chc13">
+                    <label id="chc13L" for="chc13">16-30 година</label><br>
+                    <input type="checkbox" class="chc" id="chc14">
+                    <label id="chc14L" for="chc14">31-45 година</label><br>
+                    <input type="checkbox" class="chc" id="chc15">
+                    <label id="chc15L" for="chc15">46-65 година</label><br>
+                    <input type="checkbox" class="chc" id="chc16">
+                    <label id="chc16L" for="chc16">преко 65 година</label><br>
+                    <textarea rows="1" cols="40" name="starosna_grupa" class="txt_polje" id="txt_sg" readonly></textarea>
+                    <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
+                </div>
+                <div id="button_div">
+                <button  id="submit" type="submit">Пошаљи</button>                
+                </div>
+            </form>
+            <div align="center" id="status"></div>
+            <h1 align="center">ХВАЛА ШТО СТЕ УЗЕЛИ УЧЕШЋЕ!</h1>
+
+        </div>
+
+
+    </div>
+
+    <style>
+        #main_div {
+            border: solid 1px black;
+            width: 50%;
+            background-color: wheat;
+            
+        }
+        #header_div {
+            display: flex;
+        }
+        h2 {
+            margin-top: -1rem;
+        }
+        img {
+            width: 9rem;
+            height: 6rem;
+            padding-top: 2rem;
+        }
+        #body_div {
+            padding: 1rem;
+        }
+        p {
+            margin-top: -1rem;
+        }
+        .txt_polje {
+            background-color: wheat;
+            border: none;
+            resize: none;
+        }
+        #mesto {
+            resize: none;
+            margin-bottom: -5px;
+        }
+        .checkbox_div {
+            
+            margin-left: 1.5rem;
+        }
+        button {
+           width: 7rem;
+           height: 3rem;
+           border-radius: 5px;
+       }
+       button:hover {
+            background-color: yellowgreen;
+            cursor: pointer;
+       }
+       #button_div {
+           width: 100%;
+           text-align: center;
+       }
+       #status {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+            border-radius: 8px;
+            }
+        #status.success {
+            background-color: rgb(211, 250, 153);
+            animation: status 4s ease forwards;
+            }
+        #status.error {
+            background-color: rgb(250, 129, 92);
+            color: white;
+            animation: status 4s ease forwards;
+            }
+            @keyframes status {
+                0% {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                90% {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                100% {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                }
+
+      
+    </style>
+
+    <script type="text/javascript">
+
+
+let txt_pr = "";
+let chc1 = document.getElementById(`chc1`);
+let chc1L = document.getElementById(`chc1L`).innerText;
+chc1.addEventListener(`change`, () => { 
+if (chc1.checked === true) {
+    document.getElementById(`txt_pr`).innerText = txt_pr += ` | ` + chc1L;       
+} else {document.getElementById(`txt_pr`).innerText = ``; txt_pr = ``;
+chc2.checked = false;chc3.checked = false;chc4.checked = false;chc5.checked = false;
+}
+});
+
+let chc2 = document.getElementById(`chc2`);
+let chc2L = document.getElementById(`chc2L`).innerText;
+chc2.addEventListener(`change`, () => { 
+if (chc2.checked === true) {
+    document.getElementById(`txt_pr`).innerText = txt_pr += ` | ` + chc2L;       
+} else {document.getElementById(`txt_pr`).innerText = ``; txt_pr = ``;
+chc1.checked = false;chc3.checked = false;chc4.checked = false;chc5.checked = false;
+}
+});
+
+let chc3 = document.getElementById(`chc3`);
+let chc3L = document.getElementById(`chc3L`).innerText;
+chc3.addEventListener(`change`, () => { 
+if (chc3.checked === true) {
+    document.getElementById(`txt_pr`).innerText = txt_pr += ` | ` + chc3L;       
+} else {document.getElementById(`txt_pr`).innerText = ``; txt_pr = ``;
+chc1.checked = false;chc2.checked = false;chc4.checked = false;chc5.checked = false;
+}
+});
+
+let chc4 = document.getElementById(`chc4`);
+let chc4L = document.getElementById(`chc4L`).innerText;
+chc4.addEventListener(`change`, () => { 
+if (chc4.checked === true) {
+    document.getElementById(`txt_pr`).innerText = txt_pr += ` | ` + chc4L;       
+} else {document.getElementById(`txt_pr`).innerText = ``; txt_pr = ``;
+chc1.checked = false;chc2.checked = false;chc3.checked = false;chc5.checked = false;
+}
+});
+
+let chc5 = document.getElementById(`chc5`);
+let chc5L = document.getElementById(`chc5L`).innerText;
+chc5.addEventListener(`change`, () => { 
+if (chc5.checked === true) {
+    document.getElementById(`txt_pr`).innerText = txt_pr += ` | ` + chc5L;       
+} else {document.getElementById(`txt_pr`).innerText = ``; txt_pr = ``;
+chc1.checked = false;chc2.checked = false;chc3.checked = false;chc4.checked = false;
+}
+});
+
+//-----------------------------------------------------------------------------
+
+let txt_uvp = "";
+let chc6 = document.getElementById(`chc6`);
+let chc6L = document.getElementById(`chc6L`).innerText;
+chc6.addEventListener(`change`, () => { 
+if (chc6.checked === true) {
+    document.getElementById(`txt_uvp`).innerText = txt_uvp += ` | ` + chc6L;       
+} else {document.getElementById(`txt_uvp`).innerText = ``; txt_uvp = ``;
+chc7.checked = false;chc8.checked = false;chc9.checked = false;chc10.checked = false;
+}
+});
+
+let chc7 = document.getElementById(`chc7`);
+let chc7L = document.getElementById(`chc7L`).innerText;
+
+
+chc7.addEventListener(`change`, () => { 
+if (chc7.checked === true) { 
+    let mesto = document.getElementById(`mesto`).value;
+   document.getElementById(`txt_uvp`).innerText = txt_uvp += ` | ` + chc7L + " " + mesto;       
+} else {document.getElementById(`txt_uvp`).innerText = ``; txt_uvp = ``;
+    chc6.checked = false;chc8.checked = false;chc9.checked = false;chc10.checked = false;
+}
+});
+
+let chc8 = document.getElementById(`chc8`);
+let chc8L = document.getElementById(`chc8L`).innerText;
+chc8.addEventListener(`change`, () => { 
+if (chc8.checked === true) {
+    document.getElementById(`txt_uvp`).innerText = txt_uvp += ` | ` + chc8L;       
+} else {document.getElementById(`txt_uvp`).innerText = ``; txt_uvp = ``;
+chc6.checked = false;chc7.checked = false;chc9.checked = false;chc10.checked = false;}
+});
+
+let chc9 = document.getElementById(`chc9`);
+let chc9L = document.getElementById(`chc9L`).innerText;
+chc9.addEventListener(`change`, () => { 
+if (chc9.checked === true) {
+    document.getElementById(`txt_uvp`).innerText = txt_uvp += ` | ` + chc9L;       
+} else {document.getElementById(`txt_uvp`).innerText = ``; txt_uvp = ``;
+chc6.checked = false;chc7.checked = false;chc8.checked = false;chc10.checked = false;}
+});
+
+let chc10 = document.getElementById(`chc10`);
+let chc10L = document.getElementById(`chc10L`).innerText;
+chc10.addEventListener(`change`, () => { 
+if (chc10.checked === true) {
+    document.getElementById(`txt_uvp`).innerText = txt_uvp += ` | ` + chc10L;       
+} else {document.getElementById(`txt_uvp`).innerText = ``; txt_uvp = ``;
+chc6.checked = false;chc7.checked = false;chc8.checked = false;chc9.checked = false;}
+});
+//------------------------------------------------------------------------------
+
+let txt_pol = "";
+let chc11 = document.getElementById(`chc11`);
+let chc11L = document.getElementById(`chc11L`).innerText;
+chc11.addEventListener(`change`, () => { 
+if (chc11.checked === true) {
+    document.getElementById(`txt_pol`).innerText = txt_pol += ` | ` + chc11L;       
+} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``; chc12.checked = false;
+}
+});
+
+let chc12 = document.getElementById(`chc12`);
+let chc12L = document.getElementById(`chc12L`).innerText;
+chc12.addEventListener(`change`, () => { 
+if (chc12.checked === true) {
+    document.getElementById(`txt_pol`).innerText = txt_pol += ` | ` + chc12L;       
+} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``; chc11.checked = false}
+});
+
+
+//-------------------------------------------------------------------------------
+
+let txt_sg = "";
+let chc13 = document.getElementById(`chc13`);
+let chc13L = document.getElementById(`chc13L`).innerText;
+chc13.addEventListener(`change`, () => { 
+if (chc13.checked === true) {
+    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc13L;       
+} else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
+    chc14.checked = false;chc15.checked = false;chc16.checked = false;
+}
+});
+
+let chc14 = document.getElementById(`chc14`);
+let chc14L = document.getElementById(`chc14L`).innerText;
+chc14.addEventListener(`change`, () => { 
+if (chc14.checked === true) {
+    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc14L;       
+} else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
+    chc13.checked = false;chc15.checked = false;chc16.checked = false;
+}
+});
+
+let chc15 = document.getElementById(`chc15`);
+let chc15L = document.getElementById(`chc15L`).innerText;
+chc15.addEventListener(`change`, () => { 
+if (chc15.checked === true) {
+    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc15L;       
+} else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
+    chc13.checked = false;chc14.checked = false;chc16.checked = false;
+}
+});
+
+let chc16 = document.getElementById(`chc16`);
+let chc16L = document.getElementById(`chc16L`).innerText;
+chc16.addEventListener(`change`, () => { 
+if (chc16.checked === true) {
+    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc16L;       
+} else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
+    chc13.checked = false;chc14.checked = false;chc15.checked = false;
+}
+});
+
+//-------------------------------------------------------------------------------
+
+    window.addEventListener("DOMContentLoaded", function () {  
+  var form = document.getElementById("my-form");  
+  var status = document.getElementById("status"); 
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Успешно послато. Хвала!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Упс, настао је проблем.";
+  }
+
+  
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
+});
+
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
