@@ -18,7 +18,7 @@
         </div>
         <div id="body_div">
             <!-- https://formspree.io/f/mwkazdbq -->
-            <form id="my-form" action="" method="POST" >
+            <form id="my-form" action="https://formspree.io/f/mwkazdbq" method="POST" >
                 <p>Шта би од наведеног, по вашем мишљењу, требало да буде приоритет расподеле буџетских средстава за 2022. годину?</p>
                 <p><u>Изаберите највише 3 одговора</u></p>                
                     <div id="checkbox_div">
@@ -44,8 +44,7 @@
                     <label id="chc6L" for="chc6">Уређење канализационе мреже</label><br>
                     <input type="checkbox" class="chc" id="chc7">
                     <label id="chc7L" for="chc7">Изградња игралишта/парка за децу у</label>
-                    <input id="mesto" type="text" placeholder="насеље">
-                    <label for="txt2">(уписати жељено место)</label>                    
+                    <input id="mesto" type="text" placeholder="(уписати жељено место)" autocomplete="off">                                   
                     <br>
                     <input type="checkbox" class="chc" id="chc8">
                     <label id="chc8L" for="chc8">Уређење бициклистичких и шетачких стаза</label><br>
@@ -62,7 +61,7 @@
                     <label id="chc11L" for="chc11">Женски</label><br>
                     <input type="checkbox" class="chc" id="chc12">
                     <label id="chc12L" for="chc12">Мушки</label><br>
-                    <textarea rows="1" cols="20" name="pol" class="txt_polje" id="txt_pol" readonly></textarea>
+                    <textarea rows="1" cols="20" name="pol" class="txt_polje txt_invi" id="txt_pol" readonly></textarea>
                     <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
 
                 <p>Старосна група којој припадате:</p>                    
@@ -74,7 +73,7 @@
                     <label id="chc15L" for="chc15">46-65 година</label><br>
                     <input type="checkbox" class="chc" id="chc16">
                     <label id="chc16L" for="chc16">преко 65 година</label><br>
-                    <textarea rows="1" cols="40" name="starosna_grupa" class="txt_polje" id="txt_sg" readonly></textarea>
+                    <textarea rows="1" cols="40" name="starosna_grupa" class="txt_polje txt_invi" id="txt_sg" readonly></textarea>
                     <hr size="1px" color="grey" width="95%" align="center" noshade="" ><br>
                 </div>
                 <div id="button_div">
@@ -139,6 +138,9 @@
            width: 100%;
            text-align: center;
        }
+       .txt_invi {
+           color: wheat;
+       }
        #status {
             width: 90%;
             max-width: 500px;
@@ -171,19 +173,18 @@
                 }
                 }
                 /* For Mobile */
-                    @media screen and (max-width: 540px) {
-                        #main_div {
-                            width: 100%;
-                        }
-                    }
+            @media screen and (max-width: 540px) {
+                #main_div {
+                    width: 100%;
+                }
+            }
 
-                    /* For Tablets */
-                    @media screen and (min-width: 540px) and (max-width: 780px) {
-                        #main_div {
-                            width: 80%;
-                        }
-                    }
-
+            /* For Tablets */
+            @media screen and (min-width: 540px) and (max-width: 780px) {
+                #main_div {
+                    width: 80%;
+                }
+            }
       
     </style>
 
@@ -300,8 +301,8 @@ let chc11 = document.getElementById(`chc11`);
 let chc11L = document.getElementById(`chc11L`).innerText;
 chc11.addEventListener(`change`, () => { 
 if (chc11.checked === true) {
-    document.getElementById(`txt_pol`).innerText = txt_pol += ` | ` + chc11L;       
-} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``; chc12.checked = false;
+    document.getElementById(`txt_pol`).innerText = txt_pol = chc11L; chc12.checked = false;      
+} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``;
 }
 });
 
@@ -309,8 +310,8 @@ let chc12 = document.getElementById(`chc12`);
 let chc12L = document.getElementById(`chc12L`).innerText;
 chc12.addEventListener(`change`, () => { 
 if (chc12.checked === true) {
-    document.getElementById(`txt_pol`).innerText = txt_pol += ` | ` + chc12L;       
-} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``; chc11.checked = false}
+    document.getElementById(`txt_pol`).innerText = txt_pol = chc12L;  chc11.checked = false;     
+} else {document.getElementById(`txt_pol`).innerText = ``; txt_pol = ``;}
 });
 
 
@@ -321,9 +322,10 @@ let chc13 = document.getElementById(`chc13`);
 let chc13L = document.getElementById(`chc13L`).innerText;
 chc13.addEventListener(`change`, () => { 
 if (chc13.checked === true) {
-    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc13L;       
+    document.getElementById(`txt_sg`).innerText = txt_sg = chc13L;
+    chc14.checked = false;chc15.checked = false;chc16.checked = false;       
 } else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
-    chc14.checked = false;chc15.checked = false;chc16.checked = false;
+    
 }
 });
 
@@ -331,9 +333,10 @@ let chc14 = document.getElementById(`chc14`);
 let chc14L = document.getElementById(`chc14L`).innerText;
 chc14.addEventListener(`change`, () => { 
 if (chc14.checked === true) {
-    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc14L;       
+    document.getElementById(`txt_sg`).innerText = txt_sg = chc14L;
+    chc13.checked = false;chc15.checked = false;chc16.checked = false;       
 } else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
-    chc13.checked = false;chc15.checked = false;chc16.checked = false;
+    
 }
 });
 
@@ -341,9 +344,10 @@ let chc15 = document.getElementById(`chc15`);
 let chc15L = document.getElementById(`chc15L`).innerText;
 chc15.addEventListener(`change`, () => { 
 if (chc15.checked === true) {
-    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc15L;       
+    document.getElementById(`txt_sg`).innerText = txt_sg = chc15L;
+    chc13.checked = false;chc14.checked = false;chc16.checked = false;       
 } else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
-    chc13.checked = false;chc14.checked = false;chc16.checked = false;
+    
 }
 });
 
@@ -351,9 +355,10 @@ let chc16 = document.getElementById(`chc16`);
 let chc16L = document.getElementById(`chc16L`).innerText;
 chc16.addEventListener(`change`, () => { 
 if (chc16.checked === true) {
-    document.getElementById(`txt_sg`).innerText = txt_sg += ` | ` + chc16L;       
+    document.getElementById(`txt_sg`).innerText = txt_sg = chc16L;
+    chc13.checked = false;chc14.checked = false;chc15.checked = false;       
 } else {document.getElementById(`txt_sg`).innerText = ``; txt_sg = ``;
-    chc13.checked = false;chc14.checked = false;chc15.checked = false;
+    
 }
 });
 
